@@ -1,0 +1,75 @@
+<div>
+  <md-toolbar color="primary">
+    <span>
+      <md-icon class="icon-20">pets</md-icon>
+      Revista Planteamientos
+    </span>
+    <span class="example-spacer"></span>
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="openDialog()">Iniciar Sesión</button>
+  </md-menu>
+  <md-sidenav-container>
+    <md-sidenav align="start" mode="side" #sidenav>
+      <md-tab-group>
+        <md-tab>
+          <ng-template md-tab-label>Detalles</ng-template>
+          <ng-template md-tab-content>
+            <p>Name: {{currentDog.name}}</p>
+            <p>Human: {{currentDog.human}}</p>
+            <p>Age: {{currentDog.age}}</p>
+            <button md-raised-button (click)="sidenav.close()" color="accent">CLOSE</button>
+          </ng-template>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>Feed</ng-template>
+          <ng-template md-tab-content></ng-template>
+        </md-tab>
+      </md-tab-group>
+    </md-sidenav>
+
+  </md-sidenav-container>
+
+
+
+      <div class="demo-card-container" >
+                  <md-card *ngFor="let dog of dogs" class="mat-card-flat">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{dog.name}}</md-card-title>
+    <md-card-subtitle>{{dog.human}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="assets/{{dog.name}}.png">
+  <md-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Layout Directive</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+      <div layout="row">
+        <div flex>First item in row</div>
+        <div flex>Second item in row</div>
+      </div>
+      <div layout="column">
+        <div flex>First item in column</div>
+        <div flex>Second item in column</div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+  </div>
+</div>
